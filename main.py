@@ -24,11 +24,12 @@ def modify_melody(melody):
 
 if __name__ == "__main__":
     melodies = [generate_random_melody() for _ in range(10)]
+    ssss = int(input("Input scale to use(0 = c, 1 = cm, 2 = d, etc.): "))
     while True:
         for index, melody in enumerate(melodies, 1):
             print(f"Melody {index}:")
             for note in melody.notes:
-                ws.Beep(scales.C[note], 350)
+                ws.Beep(scales.scale[ssss][note], 350)
             melody.fit = int(input("rate out of 100: "))
             time.sleep(0.5)
         # Sort melodies based on fit value
